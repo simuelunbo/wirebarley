@@ -6,7 +6,7 @@ internal data class CurrencyDataResponse(
     @SerializedName("success")
     var success: Boolean,
     @SerializedName("timestamp")
-    var timestamp: Int,
+    var timestamp: Long,
     @SerializedName("source")
     var source: String,
     @SerializedName("quotes")
