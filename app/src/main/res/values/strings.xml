@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">wirebarley</string>
+    <string name="exchange_rate_calculation_title">환율 계산</string>
+    <string name="remittance_country">송금 국가 :</string>
+    <string name="recipient_country">수취 국가 :</string>
+    <string name="exchange_rate">환율 :</string>
+    <string name="exchange_time">조회 시간 :</string>
+    <string name="remittance">송금액 :</string>
+    <string name="result_message">수취금액은 %1$s 입니다.</string>
+    <string name="usd">USD</string>
+    <string name="USA">미국(USD)</string>
 </resources>
