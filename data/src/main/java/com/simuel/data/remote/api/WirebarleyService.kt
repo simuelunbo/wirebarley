@@ -7,5 +7,7 @@ import retrofit2.http.Query
 internal interface WireBarleyService {
 
     @GET("live")
-    suspend fun getCurrencyData() : CurrencyDataResponse
+    suspend fun getCurrencyData(
+        @Query("currencies") currencies: String = "KRW, JPY, PHP"
+    ) : CurrencyDataResponse
 }
