@@ -9,6 +9,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import org.junit.jupiter.api.DisplayName
+import com.simuel.domain.error.Error
 
 @ExperimentalCoroutinesApi
 class CurrencyUseCaseTest {
@@ -26,5 +27,19 @@ class CurrencyUseCaseTest {
 
         // then
         Truth.assertThat(actual).isEqualTo(quote)
+    }
+
+    @Test
+    @DisplayName("네트워크 연결이 되어 있지 않으면 환율 데이터를 가져오지 못한다.")
+    fun getExchangeRateDataIfNetworkAvailable() = runTest {
+        // given
+        val quote = Error.NetworkUnavailable
+        val useCase = GetCurrencyUseCase(repository)
+        coEvery { repository.getCurrency() } returns Result.failure(quote)
+        // when
+        val actual = useCase().exceptionOrNull()
+        // then
+        Truth.assertThat(actual).isInstanceOf(Error.NetworkUnavailable::class.java)
+
     }
 }
