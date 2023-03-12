@@ -18,7 +18,7 @@ class CurrencyUseCaseTest {
     @DisplayName("해당 환율 데이터를 성공적으로 가져온다.")
     fun getQuoteSuccess() = runTest {
         // given
-        val quote = Quote(1121.419945, 110.959498, 52.72027)
+        val quote = Quote(1121.419945, 110.959498, 52.72027,1678498323)
         val useCase = GetCurrencyUseCase(repository)
         coEvery { repository.getCurrency() } returns Result.success(quote)
         // when
